@@ -82,4 +82,27 @@ public_users.get('/isbn/:isbn', function (req, res) {
       console.log(error.message);
     }
   }
+
+async function getBooksByAuthor(author) {
+  try {
+    const response = await axios.get(
+      `http://localhost:5000/author/${encodeURIComponent(author)}`
+    );
+    console.log(response.data);
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+async function getBooksByTitle(title) {
+  try {
+    const response = await axios.get(
+      `http://localhost:5000/title/${encodeURIComponent(title)}`
+    );
+    console.log(response.data);
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
 module.exports.general = public_users;
